@@ -4,11 +4,14 @@ import busio
 import displayio
 # import neopixel
 import math
-import geometry_helper
+import lib.geometry_helper as geometry_helper
 
-import gc9a01
-import bmi160 as BMI160
+import lib.gc9a01 as gc9a01
+import lib.bmi160 as BMI160
+import lib.face.Face as Face
 from adafruit_display_shapes.circle import Circle
+from adafruit_display_shapes.line import Line
+from adafruit_display_shapes.rect import Rect
 
 # # Configure the setup
 # PIXEL_PIN = board.GP16  # pin that the NeoPixel is connected to
@@ -71,17 +74,17 @@ ball = Circle(x, y, radius, fill=BALL_COLOR)
 # Create a display group and add the ball
 group = displayio.Group()
 
-# Outside the while loop
-bitmap = displayio.Bitmap(display.width, display.height, 2)
-palette = displayio.Palette(2)
-palette[0] = BACKGROUND_COLOR
-palette[1] = BALL_COLOR
+# # Outside the while loop
+# bitmap = displayio.Bitmap(display.width, display.height, 2)
+# palette = displayio.Palette(2)
+# palette[0] = BACKGROUND_COLOR
+# palette[1] = BALL_COLOR
 
-background = displayio.TileGrid(bitmap, pixel_shader=palette)
-group.append(background)
+# background = displayio.TileGrid(bitmap, pixel_shader=palette)
+# group.append(background)
 
 
-group.append(ball)
+# group.append(ball)
 
 # Gravity sensor configuration
 # RED - 3.3v
@@ -94,23 +97,37 @@ bmi = BMI160.BMI160(i2c)
 bmi.gyro_range = BMI160.GYRO_RANGE_500
 print("Gravity sensor configured!")
 
+
+
+# Create a group for the face and its features
+face_group = displayio.Group()
+
+face = Face.Face()
+face.drawFace(face_group)
+
+# Display the face on the screen
+display.show(face_group)
+
 while True:
+    pass
 
-    gyrox, gyroy, gyroz = bmi.acceleration
-    speed_x = (int)(gyrox * 20)
-    speed_y = (int)(gyroy * 20)
+# while True:
 
-    # # Update the position
-    x += speed_x
-    y += speed_y 
+#     gyrox, gyroy, gyroz = bmi.acceleration
+#     speed_x = (int)(gyrox * 20)
+#     speed_y = (int)(gyroy * 20)
 
-    x, y = geometry_helper.GeometryHelper.get_new_goal_pos(center_x, center_y, x, y, screen_radius)
+#     # # Update the position
+#     x += speed_x
+#     y += speed_y 
 
-    # Update ball's position in the group
-    ball.x = int(x)
-    ball.y = int(y)
+#     x, y = geometry_helper.GeometryHelper.get_new_goal_pos(center_x, center_y, x, y, screen_radius)
 
-    # Redraw ball at new position
-    # group.append(ball)
-    display.show(group)
-    time.sleep(0.01)
+#     # Update ball's position in the group
+#     ball.x = int(x)
+#     ball.y = int(y)
+
+#     # Redraw ball at new position
+#     # group.append(ball)
+#     display.show(group)
+#     time.sleep(0.01)
