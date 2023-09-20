@@ -35,20 +35,27 @@ i2c = busio.I2C(scl = board.GP27, sda=board.GP26)  # uses board.SCL and board.SD
 bmi = BMI160.BMI160(i2c)
 bmi.gyro_range = BMI160.GYRO_RANGE_500
 
+# # Create a group for the face and its features
+# face_group_1 = displayio.Group()
+# face1 = Face.Face(screen_width=display.width, screen_height=display.height)
+# face1.drawFace(face_group_1)
+
+# face_group_2 = displayio.Group()
+# face2 = Face.FaceBlinkTongue(screen_width=display.width, screen_height=display.height)
+# face2.drawFace(face_group_2)
+
+# while True:
+#     display.show(face_group_1)
+#     time.sleep(3)
+#     display.show(face_group_2)
+#     time.sleep(1)
+
 # Create a group for the face and its features
-face_group_1 = displayio.Group()
-face1 = Face.Face(screen_width=display.width, screen_height=display.height)
-face1.drawFace(face_group_1)
-
-face_group_2 = displayio.Group()
-face2 = Face.Face2(screen_width=display.width, screen_height=display.height)
-face2.drawFace(face_group_2)
-
+face_group = displayio.Group()
+Face.FaceTest(screen_width=display.width, screen_height=display.height).drawFace(face_group)
+display.show(face_group)
 while True:
-    display.show(face_group_1)
-    time.sleep(5)
-    display.show(face_group_2)
-    time.sleep(5)
+    pass
 
 # while True:
 
