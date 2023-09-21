@@ -114,9 +114,10 @@ class FaceTest(Face):
                  screen_width: int,
                  screen_height: int):
         Face.__init__(self, screen_width, screen_height)
-        # self.left_eye = eye.EyeBlink(self.pixel_size, self.center_x - self.eye_offset_x, self.center_y - self.eye_offset_y)
-        # self.right_eye = eye.EyeBlink(self.pixel_size, self.center_x + self.eye_offset_x, self.center_y - self.eye_offset_y)
-
+        self.left_eye = eye.EyeHeart(self.pixel_size, self.center_x - self.eye_offset_x, self.center_y - self.eye_offset_y)
+        self.right_eye = eye.EyeHeart(self.pixel_size, self.center_x + self.eye_offset_x, self.center_y - self.eye_offset_y)
+        self.left_cheek = cheek.CheekNone(self.pixel_size, self.center_x - self.eye_offset_x, self.center_y - self.eye_offset_y + int(self.pixel_size * 2.5), True)
+        self.right_cheek = cheek.CheekNone(self.pixel_size, self.center_x + self.eye_offset_x, self.center_y - self.eye_offset_y + int(self.pixel_size * 2.5), False)
         # self.left_eyebrow = eyebrow.Eyebrow(self.pixel_size, self.center_x - self.eye_offset_x, self.center_y - self.eye_offset_y - int(self.pixel_size * 3.5), True)
         # self.right_eyebrow = eyebrow.Eyebrow(self.pixel_size, self.center_x + self.eye_offset_x, self.center_y - self.eye_offset_y - int(self.pixel_size * 3.5), False)
-        self.mouth = mouth.Mouth2DotV(self.pixel_size, self.center_x, self.center_y + self.pixel_size * 3)
+        self.mouth = mouth.MouthCat(self.pixel_size, self.center_x, self.center_y + self.pixel_size * 3)

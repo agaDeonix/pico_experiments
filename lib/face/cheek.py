@@ -19,3 +19,9 @@ class Cheek:
             face.append(Rect(self.center_x - int(self.pixel_size * 2.5), self.center_y, self.pixel_size * 4, self.pixel_size * 2, fill=colors.PEACH))
         else:
             face.append(Rect(self.center_x - int(self.pixel_size * 1.5), self.center_y, self.pixel_size * 4, self.pixel_size * 2, fill=colors.PEACH))
+
+class CheekNone(Cheek):
+
+    def draw(self,
+             face: Group):
+        pass

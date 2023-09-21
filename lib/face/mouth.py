@@ -116,7 +116,7 @@ class MouthBigLine(Mouth):
 
     def draw(self,
              face: Group):
-        face.append(Rect(self.center_x - int(self.pixel_size * 3.5), self.center_y - int(self.pixel_size * 0), self.pixel_size * 7, self.pixel_size * 1, fill=colors.BLACK))
+        face.append(Rect(self.center_x - int(self.pixel_size * 3.5), self.center_y + int(self.pixel_size * 1), self.pixel_size * 7, self.pixel_size * 1, fill=colors.BLACK))
 
 class MouthCatLaugh(Mouth):
 
