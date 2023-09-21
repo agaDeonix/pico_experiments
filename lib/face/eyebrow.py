@@ -64,7 +64,7 @@ class EyebrowGrin(Eyebrow):
              face: Group):
         face.append(Rect(self.center_x - int(self.pixel_size * 2.5), self.center_y - int(self.pixel_size * 0), self.pixel_size * 5, self.pixel_size * 1, fill=colors.BLACK))
 
-class EyebrowAmgry(Eyebrow):
+class EyebrowAngry(Eyebrow):
 
     def draw(self,
              face: Group):
