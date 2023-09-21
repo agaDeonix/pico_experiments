@@ -41,7 +41,7 @@ class EyeLine(Eye):
 
     def draw(self,
              face: Group):
-        face.append(Rect(self.center_x - int(self.pixel_size * 3), self.center_y - int(self.pixel_size * 0), self.pixel_size * 6, self.pixel_size * 1, fill=colors.BLACK))
+        face.append(Rect(self.center_x - int(self.pixel_size * 3), self.center_y - int(self.pixel_size * 3), self.pixel_size * 6, self.pixel_size * 1, fill=colors.BLACK))
 
 class EyeDead(Eye):
 

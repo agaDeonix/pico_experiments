@@ -15,6 +15,20 @@ class Eyebrow:
 
     def draw(self,
              face: Group):
+        face.append(Rect(self.center_x - int(self.pixel_size * 1.5), self.center_y - int(self.pixel_size * 3), self.pixel_size * 3, self.pixel_size * 1, fill=colors.BLACK))
+        face.append(Rect(self.center_x + int(self.pixel_size * 1.5), self.center_y - int(self.pixel_size * 2), self.pixel_size * 1, self.pixel_size * 1, fill=colors.BLACK))
+        face.append(Rect(self.center_x - int(self.pixel_size * 2.5), self.center_y - int(self.pixel_size * 2), self.pixel_size * 1, self.pixel_size * 1, fill=colors.BLACK))
+
+class EyebrowNone(Eyebrow):
+
+    def draw(self,
+             face: Group):
+        pass
+
+class EyebrowSad(Eyebrow):
+
+    def draw(self,
+             face: Group):
         if self.is_left:
             face.append(Rect(self.center_x - int(self.pixel_size * 1), self.center_y - int(self.pixel_size * 1), self.pixel_size * 2, self.pixel_size * 1, fill=colors.BLACK))
             face.append(Rect(self.center_x + int(self.pixel_size * 1), self.center_y - int(self.pixel_size * 2), self.pixel_size * 1, self.pixel_size * 1, fill=colors.BLACK))
@@ -22,8 +36,43 @@ class Eyebrow:
             face.append(Rect(self.center_x - int(self.pixel_size * 1), self.center_y - int(self.pixel_size * 1), self.pixel_size * 2, self.pixel_size * 1, fill=colors.BLACK))
             face.append(Rect(self.center_x - int(self.pixel_size * 2), self.center_y - int(self.pixel_size * 2), self.pixel_size * 1, self.pixel_size * 1, fill=colors.BLACK))
 
-class EyebrowNone(Eyebrow):
+class EyebrowShock(Eyebrow):
 
     def draw(self,
              face: Group):
-        pass
+        if self.is_left:
+            face.append(Rect(self.center_x - int(self.pixel_size * 1.5), self.center_y - int(self.pixel_size * 3), self.pixel_size * 3, self.pixel_size * 1, fill=colors.BLACK))
+            face.append(Rect(self.center_x - int(self.pixel_size * 2.5), self.center_y - int(self.pixel_size * 2), self.pixel_size * 1, self.pixel_size * 1, fill=colors.BLACK))
+        else:
+            face.append(Rect(self.center_x - int(self.pixel_size * 1.5), self.center_y - int(self.pixel_size * 3), self.pixel_size * 3, self.pixel_size * 1, fill=colors.BLACK))
+            face.append(Rect(self.center_x + int(self.pixel_size * 1.5), self.center_y - int(self.pixel_size * 2), self.pixel_size * 1, self.pixel_size * 1, fill=colors.BLACK))
+
+class EyebrowLong(Eyebrow):
+
+    def draw(self,
+             face: Group):
+        if self.is_left:
+            face.append(Rect(self.center_x + int(self.pixel_size * 0.5), self.center_y - int(self.pixel_size * 3), self.pixel_size * 2, self.pixel_size * 1, fill=colors.BLACK))
+            face.append(Rect(self.center_x - int(self.pixel_size * 1.5), self.center_y - int(self.pixel_size * 2), self.pixel_size * 2, self.pixel_size * 1, fill=colors.BLACK))
+        else:
+            face.append(Rect(self.center_x - int(self.pixel_size * 2.5), self.center_y - int(self.pixel_size * 3), self.pixel_size * 2, self.pixel_size * 1, fill=colors.BLACK))
+            face.append(Rect(self.center_x - int(self.pixel_size * 0.5), self.center_y - int(self.pixel_size * 2), self.pixel_size * 2, self.pixel_size * 1, fill=colors.BLACK))
+
+class EyebrowGrin(Eyebrow):
+
+    def draw(self,
+             face: Group):
+        face.append(Rect(self.center_x - int(self.pixel_size * 2.5), self.center_y - int(self.pixel_size * 0), self.pixel_size * 5, self.pixel_size * 1, fill=colors.BLACK))
+
+class EyebrowAmgry(Eyebrow):
+
+    def draw(self,
+             face: Group):
+        if self.is_left:
+            face.append(Rect(self.center_x - int(self.pixel_size * 0.5), self.center_y - int(self.pixel_size * 2), self.pixel_size * 1, self.pixel_size * 1, fill=colors.BLACK))
+            face.append(Rect(self.center_x + int(self.pixel_size * 0.5), self.center_y - int(self.pixel_size * 1), self.pixel_size * 1, self.pixel_size * 1, fill=colors.BLACK))
+            face.append(Rect(self.center_x + int(self.pixel_size * 1.5), self.center_y - int(self.pixel_size * 0), self.pixel_size * 1, self.pixel_size * 1, fill=colors.BLACK))
+        else:
+            face.append(Rect(self.center_x - int(self.pixel_size * 0.5), self.center_y - int(self.pixel_size * 2), self.pixel_size * 1, self.pixel_size * 1, fill=colors.BLACK))
+            face.append(Rect(self.center_x - int(self.pixel_size * 1.5), self.center_y - int(self.pixel_size * 1), self.pixel_size * 1, self.pixel_size * 1, fill=colors.BLACK))
+            face.append(Rect(self.center_x - int(self.pixel_size * 2.5), self.center_y - int(self.pixel_size * 0), self.pixel_size * 1, self.pixel_size * 1, fill=colors.BLACK))
